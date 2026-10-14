@@ -16,6 +16,7 @@ public class Tratamiento {
         this.costo = costo;
     }
 
+    //se viola OCP
     public double calcularCostoFinal() {
         if (tipo == TipoTratamiento.VACUNA) {
             return costo + 5.0;
@@ -29,6 +30,7 @@ public class Tratamiento {
         return costo;
     }
 
+    //se viola OCP
     public String obtenerIndicaciones() {
         if (tipo == TipoTratamiento.VACUNA) {
             return "Observar fiebre durante 24 horas.";

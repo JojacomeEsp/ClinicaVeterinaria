@@ -1,11 +1,26 @@
 package clinicaveterinaria;
 
-import clinicaveterinaria.model.*;
-import clinicaveterinaria.repository.*;
-import clinicaveterinaria.service.*;
-
-
 import java.time.LocalDate;
+
+import clinicaveterinaria.model.Cita;
+import clinicaveterinaria.model.Factura;
+import clinicaveterinaria.model.Mascota;
+import clinicaveterinaria.model.Pez;
+import clinicaveterinaria.model.TipoAnimal;
+import clinicaveterinaria.model.TipoTratamiento;
+import clinicaveterinaria.model.Tratamiento;
+import clinicaveterinaria.model.Veterinario;
+import clinicaveterinaria.repository.BaseDatos;
+import clinicaveterinaria.service.CalculadoraCostoTratamiento;
+import clinicaveterinaria.service.Clinica;
+import clinicaveterinaria.service.DiagnosticoService;
+import clinicaveterinaria.service.FacturacionService;
+import clinicaveterinaria.service.MascotaService;
+import clinicaveterinaria.service.ReporteService;
+import clinicaveterinaria.service.ReservaService;
+import clinicaveterinaria.service.ServicioClinicaCompleto;
+import clinicaveterinaria.service.TratamientoService;
+import clinicaveterinaria.service.VeterinarioCrudService;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,7 +39,6 @@ public class Main {
 
         mascotaService.crearMascota(mascota);
         veterinarioCrudService.crearVeterinario(veterinario);
-        tratamientoService.crearTratamiento(tratamiento);
 
         Cita cita = reservaService.reservarCita(1, mascota, veterinario, LocalDate.now());
         diagnosticoService.diagnosticar(cita, "Paciente estable para tratamiento.");
@@ -35,7 +49,7 @@ public class Main {
         System.out.println(mascotaService.obtenerMascota(1));
         System.out.println(cita);
         System.out.println(factura);
-        System.out.println("Preparacion: " + tratamientoService.prepararSala(tratamiento));
+        System.out.println("Indicaciones: " + tratamiento.obtenerIndicaciones());
         System.out.println("Costo con impuestos: " + new CalculadoraCostoTratamiento().calcularConImpuestos(tratamiento));
         System.out.println("Citas Dr. Ruiz: " + reporteService.generarReporteCitasPorVeterinario(1).size());
         System.out.println("Mascotas de Ana Perez: " + reporteService.generarReporteMascotasPorDueno("Ana Perez").size());

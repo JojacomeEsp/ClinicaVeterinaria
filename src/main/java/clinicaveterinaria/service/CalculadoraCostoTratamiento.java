@@ -6,6 +6,7 @@ import clinicaveterinaria.model.Tratamiento;
 
 public class CalculadoraCostoTratamiento {
     public double calcularConImpuestos(Tratamiento tratamiento) {
+        //se viola OCP demasiados ifs y se limita a ciertos tipos de tratamientos
         if (tratamiento.getTipo() == TipoTratamiento.VACUNA) {
             return tratamiento.getCosto() * 1.12;
         } else if (tratamiento.getTipo() == TipoTratamiento.CIRUGIA) {
