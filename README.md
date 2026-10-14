@@ -53,7 +53,15 @@ Si mantenemos la logica de los ifs no se podría respetar OCP, pero como impleme
 ¿Cuándo una interfaz ayuda a extender el sistema?
 Cuando se requiere de añadir muchos más tipos de objetos, eso da flexibilidad para validar.
 - Integrante 3: refactorizar LSP.
-- Integrante 4: refactorizar ISP y DIP.
+- Integrante 4 (Jorge Jacome): refactorizar ISP y DIP.
+Se dividió IServicioClinica en interfaces más pequeñas y específicas: IMascotaService, ICitaService, IFacturaService e IReporteService.
+Se creó e implementó la interfaz IRecepcionVet.java.
+Se actualizó RecepcionService para que dependa únicamente de las interfaces que realmente utiliza.
+Se modificó la clase Clinica para recibir por constructor las dependencias de IVeterinarioService e IBaseDatos.
+Se ajustó GestorReportesClinica para recibir sus dependencias desde el exterior.
+Se realizaron las pruebas correspondientes en el Main.java integrando las implementaciones concretas.
+
+
 
 Lee `guia.md` para instrucciones, checklists y preguntas de discusión.
 
