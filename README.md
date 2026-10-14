@@ -50,3 +50,10 @@ src/main/java/clinicaveterinaria/
 - Integrante 4: refactorizar ISP y DIP.
 
 Lee `guia.md` para instrucciones, checklists y preguntas de discusión.
+
+## Integrante 3 - LSP
+
+- Problema encontrado: La clase Animal obligaba a sus clases hijas a tener métodos como volar(), nadar() y caminar(), aunque no todos los animales podían realizar esas acciones, lo que provocaba excepciones en clases como Perro, Gato y Pez.
+- Cambios realizados: Separé las capacidades en tres interfaces: Caminador, Nadador y Volador. También modifiqué las clases de animales para que cada una tenga únicamente los métodos que necesita.
+- Justificación: Estos cambios evitan que las clases hijas hereden comportamientos que no pueden cumplir y permiten respetar el principio LSP.
+- Comprobación: Ejecuté Main.java en VS Code y el programa funcionó correctamente, incluyendo la demostración del pez nadando.
