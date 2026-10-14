@@ -17,6 +17,7 @@ public class Main {
         FacturacionService facturacionService = new FacturacionService(baseDatos);
         TratamientoService tratamientoService = new TratamientoService(baseDatos);
         ReporteService reporteService = new ReporteService(baseDatos);
+        
 
         Mascota mascota = new Mascota(1, "Luna", TipoAnimal.PERRO, 4, "Ana Perez");
         Veterinario veterinario = new Veterinario(1, "Dr. Ruiz", "Medicina general", true);
@@ -42,7 +43,7 @@ public class Main {
         System.out.println("Ingresos del mes: " + reporteService.calcularIngresosMensual());
 
         demostrarViolacionesSinRomperEjecucion(veterinario, mascota, tratamiento);
-        new Clinica().agendarConsultaRapida(mascota, veterinario);
+        new Clinica(null, baseDatos).agendarConsultaRapida(mascota, veterinario);
         new ServicioClinicaCompleto(baseDatos).calcularTratamiento(tratamiento);
     }
 
