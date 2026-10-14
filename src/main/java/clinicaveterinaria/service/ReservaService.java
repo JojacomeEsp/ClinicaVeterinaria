@@ -16,9 +16,22 @@ public class ReservaService {
     }
 
     public Cita reservarCita(int id, Mascota mascota, Veterinario veterinario, LocalDate fecha) {
-        Cita cita = new Cita(id, mascota, veterinario, fecha, "Pendiente", EstadoCita.PROGRAMADA);
-        baseDatos.getCitas().add(cita);
-        veterinario.setDisponible(false);
-        return cita;
+        if (veterinario.isDisponible()) {
+            Cita cita = new Cita(id, mascota, veterinario, fecha, "Pendiente", EstadoCita.PROGRAMADA);
+        
+            baseDatos.getCitas().add(cita);
+            veterinario.setDisponible(false);
+            
+            return cita; 
+        }
+        
+        return null; 
     }
+
+    /*public Cita reservarCita(int citaId, Mascota mascota, LocalDate fecha) {
+        disponible = false;
+        return new Cita(citaId, mascota, this, fecha, "Pendiente", EstadoCita.PROGRAMADA);
+    }
+    */
+
 }

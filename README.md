@@ -45,6 +45,9 @@ src/main/java/clinicaveterinaria/
 ## Trabajo del taller
 
 - Integrante 1: refactorizar SRP.
+```text 
+Se modifico "Veterinario" ya que incumplia el principio de Single Responsability y se traslado la logica de reservar, diagnosticar, generar facturas y crear reporte llevando estas a sus respectivos servicios 
+```
 - Integrante 2: refactorizar OCP.
 ¿Por qué los condicionales repetidos hacen más caro el cambio?
 Debido a que son sensibles al añadir nuevos tipos de tratamiento en este caso, por lo que provoca que se modifiquen partes del código existente.
